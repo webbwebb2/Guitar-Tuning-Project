@@ -43,6 +43,8 @@ class Complex {
     void operator*=(const Complex&);
     void operator/=(const Complex&);
     void operator=(const Complex&);
+    Complex conj(void);
+    float norm_sq(void);
   	String toString(void);
   	float re;
   	float im;

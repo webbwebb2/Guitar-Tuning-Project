@@ -112,6 +112,14 @@ void Complex::operator/=(const Complex& o) {
   im = (_im * o.re - _re * o.im) / sq;
 }
 
+Complex Complex::conj(void) {
+  return Complex(re, -im);
+}
+
+float Complex::norm_sq(void) {
+  return re * re + im * im;
+}
+
 String Complex::toString(void) {
   String str = String('(');
   str.concat(re);
