@@ -2,45 +2,49 @@
 #include <type.h>
 #include <_math.h>
 
-Complex a[128];
+#define LEN 2048
+#define SERIAL SerialUSB
+
+Complex a[LEN];
 unsigned short i = 0;
 unsigned int sample;
 unsigned long start;
 unsigned int max_j;
 float max_val;
+float sample_freq;
+
+int interval_padding = 1000;
 
 void setup() {
-  Serial.begin(9600);
+  SERIAL.begin(115200);
 }
 
 void loop() {
   start = micros();
-  if(i == 128) {
-    i = 0;
-    Serial.println("start");
-    _fft_dit2(a, 128);
+  for (i = 0; i < LEN; i++) {
+    a[i] = Complex((float)analogRead(A5), 0);
+    delayMicroseconds(interval_padding);
+  }
+  sample_freq = 1000000 / (float)(micros() - start) * LEN;
+  i = 0;
+  _fft_dit2(a, LEN);
     /*
-    for(int j=0;j<128;j++) {
+    for(int j=0;j<LEN;j++) {
       Serial.println(a[j].toString());
     }
     */
     // find max
-    max_val = 0.0;
-    max_j = -1;
-    for(int j=1;j<64;j++) {
-      max_val = (max_val>a[j].re) ? max_val : a[j].re;
-      max_j = (max_val>a[j].re) ? max_j : j;
-    }
-    Serial.print(max_j);
-    Serial.print(" ");
-    Serial.print(max_val);
-    Serial.print(" ");
-    Serial.println(max_j * 800 / 128);
-    //delay(1000);
+  max_val = 0.0;
+  max_j = -1;
+  for(int j=1;j<LEN/2;j++) {
+    max_val = (max_val>a[j].norm_sq()) ? max_val : a[j].norm_sq();
+    max_j = (max_val>a[j].norm_sq()) ? max_j : j;
   }
-  a[i] = Complex((float)analogRead(A0), 0);
-  //Serial.print((float)analogRead(A0));
-  i++;
-  delayMicroseconds(1112);
-  //Serial.println(micros() - start);
+  SERIAL.print(max_j);
+  SERIAL.print(" ");
+  SERIAL.print(max_val);
+  SERIAL.print(" ");
+  SERIAL.print(sample_freq);
+  SERIAL.print(" ");
+  SERIAL.println(max_j * sample_freq / LEN);
 }

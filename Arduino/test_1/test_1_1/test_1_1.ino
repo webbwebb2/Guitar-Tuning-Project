@@ -10,7 +10,7 @@ unsigned int max_j;
 float max_val;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
 }
 
 void loop() {
@@ -38,7 +38,7 @@ void loop() {
     //Serial.print(max_val);
     //Serial.print(" ");
     //Serial.println(max_j * 800 / 128);
-    delay(5000);
+    //delay(5000);
   }
   a[i] = Complex((float)analogRead(A0), 0);
   //Serial.print((float)analogRead(A0));

@@ -3,8 +3,8 @@
  * Created by Chonghua Xue, October 19, 2016
  */
 
-#ifndef _math_h
-#define _math_h
+#ifndef _MATH_H
+#define _MATH_H
 
 #include "type.h"
 #include "util.h"

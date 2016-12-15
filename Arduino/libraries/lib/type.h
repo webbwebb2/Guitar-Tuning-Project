@@ -3,8 +3,8 @@
  * Created by Chonghua Xue, October 19, 2016
  */
 
-#ifndef type_h
-#define type_h
+#ifndef TYPE_H
+#define TYPE_H
 
 #include <Arduino.h>
 

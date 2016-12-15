@@ -7,9 +7,7 @@
 Complex* malloc_arr_c(int dim) {
   Complex* vec = (Complex*)malloc(dim * sizeof(Complex));
   if (vec == NULL) {
-  	Serial.begin(BPS_DEBUG);
   	Serial.println("malloc_arr_c: fail to allocate memory.");
-  	Serial.end();
   	return NULL;
   }
   // initialize with all 0s
