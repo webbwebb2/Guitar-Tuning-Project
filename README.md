@@ -1,8 +1,7 @@
 # Guitar-Tuning-Project
 
 Team members:
-  
-  Chonghua Xue /
+  Chonghua Xue </tr>
   Robin Kaul /
   Bai Li
 
@@ -15,6 +14,8 @@ Hardwares:
   2. Stepper Motors: 28BYJ-48
   3. 3D printed components: gears, mounts etc.
   4. Electronic components: sound sensor, wires, transistors, resistors, multiplexers etc.
+
+How to use the code:
   
   For the variety of guitar shape, we are not capable of cooking up a module that can fit on any given guitar.  
 Our team start the project by purchasing a already-built travel guitar to work with. We are looking for ways to connect the current output from the tuner to the circuit in order to drive the motors. Wish us luck!
