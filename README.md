@@ -1,9 +1,9 @@
 # Guitar-Tuning-Project
 
 Team members:
-  Chonghua Xue </tr>
-  Robin Kaul /
-  Bai Li
+  Chonghua Xue<br/>
+  Robin Kaul<br/>
+  Bai Li<br/>
 
 Purpose:
 
